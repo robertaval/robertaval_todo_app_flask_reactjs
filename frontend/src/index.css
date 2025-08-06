@@ -10,51 +10,52 @@
     --card-foreground: 0 0% 10%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 10%;
-    --primary: 220 90% 56%;
+    --primary: 220 70% 55%;
     --primary-foreground: 0 0% 100%;
     --secondary: 220 20% 96%;
     --secondary-foreground: 220 20% 20%;
     --muted: 220 20% 94%;
     --muted-foreground: 220 10% 50%;
-    --accent: 220 80% 95%;
-    --accent-foreground: 220 80% 30%;
-    --destructive: 0 84.2% 60.2%;
+    --accent: 210 90% 96%;
+    --accent-foreground: 220 90% 35%;
+    --destructive: 0 80% 60%;
     --destructive-foreground: 0 0% 100%;
     --border: 220 10% 90%;
     --input: 220 10% 90%;
-    --ring: 220 10% 40%;
+    --ring: 220 90% 50%;
     --radius: 0.75rem;
   }
 
   .dark {
-    --background: 240 5% 10%;
+    --background: 240 6% 8%;
     --foreground: 0 0% 98%;
-    --card: 240 5% 12%;
+    --card: 240 6% 12%;
     --card-foreground: 0 0% 98%;
-    --popover: 240 5% 15%;
+    --popover: 240 6% 15%;
     --popover-foreground: 0 0% 98%;
-    --primary: 210 90% 60%;
+    --primary: 210 100% 65%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 240 5% 20%;
+    --secondary: 240 4% 22%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 240 5% 25%;
+    --muted: 240 5% 26%;
     --muted-foreground: 240 5% 60%;
-    --accent: 210 20% 30%;
+    --accent: 210 40% 35%;
     --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 45%;
+    --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 98%;
     --border: 240 5% 25%;
-    --input: 240 5% 20%;
+    --input: 240 5% 22%;
     --ring: 210 90% 70%;
   }
 
   * {
-    @apply border-border transition-colors duration-200;
+    @apply border-border transition-all duration-200;
   }
 
   body {
     @apply bg-background text-foreground;
     font-family: "Inter", "Montserrat", sans-serif;
+    @apply antialiased;
   }
 }
 
@@ -68,20 +69,37 @@
   }
 
   .cs-card {
-    @apply bg-card text-card-foreground rounded-2xl shadow-md p-6;
-    @apply transition-all duration-300 ease-in-out;
+    @apply bg-card text-card-foreground rounded-xl shadow-xl p-6;
+    @apply backdrop-blur-md bg-opacity-80 border border-border;
+    @apply hover:shadow-2xl transition-all duration-300 ease-in-out;
   }
 
   .cs-btn {
-    @apply inline-flex items-center justify-center px-4 py-2 font-medium rounded-lg text-white bg-primary hover:bg-blue-700;
+    @apply inline-flex items-center justify-center px-5 py-2.5 font-semibold rounded-lg transition-all;
+    @apply text-white bg-primary hover:bg-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800;
+    box-shadow: 0 4px 14px rgba(0, 118, 255, 0.39);
   }
 
   .cs-heading {
-    @apply text-3xl font-bold text-primary mb-6 tracking-tight;
+    @apply text-4xl font-extrabold text-primary mb-8 tracking-tight;
   }
 
   .cs-input {
-    @apply w-full px-4 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary;
+    @apply w-full px-4 py-2.5 bg-white dark:bg-zinc-800 border border-input rounded-md;
+    @apply text-foreground placeholder-muted-foreground shadow-sm;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition duration-200;
+  }
+
+  .cs-label {
+    @apply block mb-1 font-medium text-muted-foreground;
+  }
+
+  .cs-link {
+    @apply text-primary hover:underline hover:text-blue-700 transition-colors duration-200;
+  }
+
+  .cs-badge {
+    @apply inline-block bg-accent text-accent-foreground px-2 py-1 rounded-full text-xs font-semibold;
   }
 }
 
